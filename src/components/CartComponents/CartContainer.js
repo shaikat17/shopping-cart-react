@@ -19,7 +19,7 @@ const CartContainer = () => {
     <section className="cart">
       {/* cart header */}
       <header>
-        <h2>your bag</h2>
+        <h2>your Cart</h2>
       </header>
       {/* cart items */}
       <div>
@@ -32,13 +32,10 @@ const CartContainer = () => {
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>${ total }</span>
+            total <span>${total}</span>
           </h4>
         </div>
-        <button
-          className="btn clear-btn"
-          onClick={clearCart }
-        >
+        <button className="btn clear-btn" onClick={clearCart}>
           clear cart
         </button>
       </footer>
