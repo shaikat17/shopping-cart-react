@@ -7,34 +7,34 @@ const url = "https://course-api.com/react-useReducer-cart-project";
 const AppContext = React.createContext();
 
 const initialState = {
-    loading: false,
-    cart: cartItems,
-    total: 0,
-    amount: 0,
-}
+  loading: false,
+  cart: cartItems,
+  total: 0,
+  amount: 0,
+};
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const clearCart = () => {
-    dispatch({ type: 'Clear_Cart'})
-  }
+    dispatch({ type: "Clear_Cart" });
+  };
 
   const remove = (id) => {
     dispatch({ type: "Remove", payload: id });
-  }
+  };
 
   const increase = (id) => {
-    dispatch({type: 'Increase', payload: id })
-  }
+    dispatch({ type: "Increase", payload: id });
+  };
 
   const decrease = (id) => {
-    dispatch({ type: 'Decrease', payload: id })
-  }
+    dispatch({ type: "Decrease", payload: id });
+  };
 
   useEffect(() => {
-    dispatch({ type: 'Get_Total' })
-  },[state.cart])
+    dispatch({ type: "Get_Total" });
+  }, [state.cart]);
 
   return (
     <AppContext.Provider
@@ -43,7 +43,7 @@ const AppProvider = ({ children }) => {
         clearCart,
         remove,
         increase,
-        decrease
+        decrease,
       }}
     >
       {children}
