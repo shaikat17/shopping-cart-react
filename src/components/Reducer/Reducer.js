@@ -10,6 +10,26 @@ const reducer = (state, action) => {
       };
     }
 
+    if (action.type === 'Increase') {
+      const tempCart = state.cart.map((cartItem) => {
+        if (cartItem.id === action.payload) {
+          return {...cartItem, amount: cartItem.amount + 1}
+        }
+        return cartItem
+      })
+      return {...state, cart: tempCart}
+    }
+
+    if (action.type === "Decrease") {
+      const tempCart = state.cart.map((cartItem) => {
+        if (cartItem.id === action.payload) {
+          return { ...cartItem, amount: cartItem.amount - 1 };
+        }
+        return cartItem;
+      });
+      return { ...state, cart: tempCart };
+    }
+
     return state
 }
 
